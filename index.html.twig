@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Commandes : {{ panier| length }}</h3>
+            <form action="" class="navbar-form ">
+                <div class="input-group">
+                    <input name="code" type="text" value="" class="form-control" placeholder="Code de commande...">
+                    <span class="input-group-btn"><button type="submit"
+                                                          class="btn btn-primary">Rechercher</button></span>
+                </div>
+            </form>
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Listes des commandes</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Commande</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for pa in panier %}
+                            <tr>
+                                <td>{{ pa.id }}</td>
+                                <td>{{ pa.date  | date('Y-m-d') }}</td>
+                                <td>{{ pa.total }} €</td>
+
+                                <td><a href="{{ path('detail_panier',{'id':pa.id}) }}" >
+                                        <button  class="btn-xs btn-default">Check</button>
+                                    </a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
