@@ -1,0 +1,16 @@
+{% extends 'front.html.twig' %}
+{% block body %}
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 push-lg-4">
+                    <span class="icon icon-xl icon-success"><i class="ti ti-check-box"></i></span>
+                    <h1 class="mb-2">Merci pour votre fidélité !</h1>
+                    <h4 class="text-muted mb-5">Votre code de récupération de commande est : <b>{{ code }}</b>  .</h4>
+                    <a href="{{ path('front_homepage') }}"
+                       class="btn btn-outline-secondary"><span> Menu</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
